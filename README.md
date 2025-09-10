@@ -1,4 +1,4 @@
-# 🏟️ Tendang Store
+# ⚽ Tendang Store
 
 **Tendang Store** adalah aplikasi football shop berbasis **Django**.  
 Aplikasi ini dibuat sebagai salah satu tugas mata kuliah **Pemrograman Berbasis Platform**.  
@@ -48,7 +48,7 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
 Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
 ### Answer:  
-👉 https://drive.google.com/file/d/1jui-m9XHU4yl-0tsuzrL3wZGpw7iE7mc/view?usp=drive_link  
+https://drive.google.com/file/d/1jui-m9XHU4yl-0tsuzrL3wZGpw7iE7mc/view?usp=drive_link  
 
 ---
 
