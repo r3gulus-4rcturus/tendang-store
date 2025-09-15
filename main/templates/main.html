@@ -1,6 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>Tendang Store</h1>
 
 <h2>Sekali Tendang, Langsung Menang!</h2>
 
 <h3>Nama: {{ nama }} </h3>
 <h3>Kelas: {{ kelas }} </h3>
+
+<a href="{% url 'main:create_product' %}">
+    <button>+ Add Product</button>
+</a>
+
+<hr>
+
+{% if not product_list %}
+<p>Belum ada data produk pada toko tendang store.</p>
+{% else %}
+
+{% for product in product_list %}
+<div>
+    <h2><a href="{% url 'main:show_product_by_id' product.id %}">{{ product.title }}</a></h2>
+
+    <h1>{{ product.name }}</h1>
+    <p><b>{{ product.brand }}</b>{% if news.is_featured %} |
+        <b>Featured</b>{% endif %}
+        | {{ product.category }}
+        | Stock: {{ product.stock }}
+    </p>
+
+
+    {% if product.thumbnail %}
+    <img src="{{ product.thumbnail }}" alt="Product thumbnail" width="300">
+    <br /><br />
+    {% endif %}
+
+    <p>{{ product.description }}</p>
+
+    <p><a href="{% url 'main:show_product_by_id' product.id %}"><button>Liuat Detail Produk</button></a></p>
+</div>
+
+<hr>
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock %}
