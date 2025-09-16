@@ -15,7 +15,7 @@ https://muhammad-lanang-tendangstore.pbp.cs.ui.ac.id/
 
 ---
 
-## ❓ Question & Answer
+## 2️⃣ Tugas Individu 2 - Question & Answer
 
 ### Question:  
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
@@ -94,3 +94,61 @@ Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebe
 
 ### Answer:  
 Menurut saya, asisten dosen telah melakukan kerja yang cukup baik pada tutorial 1 kemarin. **Semangat kaka2 asdosss 🙌** 
+
+## 3️⃣ Tugas Individu 3 - Question & Answer
+
+### Question:  
+Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+
+### Answer:  
+Setiap platform pasti butuh menyimpan data (misalnya data pengguna atau transaksi). Data tersebut ada di **database**.  
+Untuk membaca atau menulis data ke database, kita memerlukan proses **data delivery** agar bisa berinteraksi dengan data tersebut.  
+
+---
+
+### Question:
+Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+### Answer:
+**XML** dan **JSON** memiliki kekurangan dan kelebihannya masing-masing. **XML** dapat mendeskripsikan struktur data dengan detail sehingga akan memudahkan apabila data yang dikirim kompleks. Namun, karena detail tersebut, XML menjadi sangat verbose. Di sisi lain, **JSON** merepresentasikan data dengan struktur yang sangat simpel, tetapi tidak cocok jika mengirim data yang kompleks. JSON lebih populer karena strukturnya yang simpel lebih cocok digunakan pada arsitektur yang umum digunakan seperti website app, mobile app, microservices, dsb.  
+
+---
+
+### Question:
+Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut? 
+
+### Answer:  
+Method ``is_valid()`` berfungsi untuk melakukan **validasi input form** dari pengguna. Django akan memeriksa apakah setiap field sudah sesuai tipe data dan aturan yang ditentukan. Dengan adanya method ini, data yang masuk lebih terjamin konsistensinya dan dapat meminimalkan potensi error, dan pengguna mendapat feedback langsung jika ada field yang tidak valid. Hal ini memudahkan developer karena tidak perlu lagi menulis kode validasi secara manual.  
+ 
+---
+
+### Question:
+Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
+### Answer:  
+``csrf_token`` dibutuhkan untuk mencegah **CSRF attack (Cross Site Request Forgery)**. Tanpa token ini, penyerang bisa memanfaatkan cookie pengguna yang tersimpan di browser untuk mengirim request POST palsu ke server, misalnya dengan membuat form yang seolah-olah dikirimkan oleh user. Dengan menambahkan ``csrf_token``, setiap request dari form harus menyertakan token unik yang hanya diberikan ke browser asli pengguna. Akibatnya, walaupun penyerang memiliki cookie user, mereka tetap tidak bisa membuat request palsu tanpa token tersebut.  
+
+---
+
+### Question:
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+### Answer:  
+1. **Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.**
+   Saya menambahkan empat fungsi views baru untuk menampilkan data dalam format **XML** dan **JSON**, baik untuk seluruh data maupun berdasarkan ID. Untuk melakukannya saya mengimpor ``HttpResponse`` dan ``serializers`` dari Django, serta model ``Product`` yang akan digunakan. Pada fungsi ``show_xml`` dan ``show_json``, saya mengambil semua data produk menggunakan ``Product.objects.all()``, lalu mengubah hasilnya menjadi XML atau JSON dengan ``serializers.serialize()`` sebelum dikembalikan melalui response. Sementara itu, untuk versi by ID saya menggunakan ``Product.objects.filter(pk=product_id)`` dan menambahkan pengecekan jika data tidak ditemukan.  
+2. **Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 1.**
+   Saya membuat routing URL untuk setiap views tersebut. Semua fungsi views yang sudah dibuat saya impor, kemudian saya tambahkan path baru di ``main/urls.py``. Untuk fungsi yang menampilkan data berdasarkan ID, saya menambahkan parameter ``<str:product_id>`` pada path sehingga ID produk bisa diteruskan langsung ke views.  
+3. **Membuat halaman yang menampilkan data objek model yang memiliki tombol "Add" yang akan redirect ke halaman form, serta tombol "Detail" pada setiap data objek model yang akan menampilkan halaman detail objek.**
+   Saya mengembangkan halaman utama yang menampilkan daftar produk dengan tombol **Add** untuk menambah produk baru dan tombol **Detail** untuk melihat informasi produk secara lengkap. Pada fungsi ``show_main`` saya mengambil seluruh produk dengan ``Product.objects.all()`` lalu mengirimkannya ke template melalui context. Template ``main.html`` kemudian saya modifikasi agar menampilkan daftar produk sekaligus menyediakan tombol Add Product yang mengarah ke halaman form, serta tombol Detail yang mengarah ke halaman detail produk.  
+4. **Membuat halaman form untuk menambahkan objek model pada app sebelumnya.**
+   Saya menambahkan halaman form untuk membuat produk baru. Untuk ini, saya membuat fungsi ``create_product`` di ``views.py``, lalu membuat file ``forms.py`` agar form bisa digenerate otomatis dari model. Saya juga menambahkan template ``create_product.html`` sebagai tampilan form. Tombol Add Product yang ada di halaman utama diarahkan ke halaman ini menggunakan ``{% url 'main:create_product' %}``. Supaya dapat diakses, saya juga menambahkan routing URL yang sesuai di ``main/urls.py``.  
+5. **Membuat halaman yang menampilkan detail dari setiap data objek model.**
+   Saya membuat halaman detail produk untuk menampilkan informasi lengkap berdasarkan ID produk. Saya menambahkan fungsi ``show_product_by_id`` di ``views.py`` dengan memanfaatkan ``get_object_or_404()`` agar lebih aman jika ID tidak ditemukan. Informasi produk yang diambil kemudian saya kirimkan ke template ``show_product.html``. Dari halaman utama, tombol **Lihat Detail Produk** pada tiap produk saya hubungkan ke halaman detail ini sehingga pengguna bisa melihat informasi lengkap dari produk yang dipilih.  
+
+---
+
+### Question:
+Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
+
+### Answer:  
+Saran saya, apabila terdapat snippet kode yang perlu diimplementasikan oleh mahasiswa, bisa dijelaskan dengan lebih detail mengenai makna dari masing-masing line, apa yang ingin dicapai dengan kode tersebut, dan bagaimana memodifikasinya. Terima kasih. Semangat kaka asdosss🤩🤩🤩
