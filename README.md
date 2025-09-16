@@ -1,4 +1,4 @@
-# ⚽ Tendang Store
+# ⚽ Tendang Store  
 
 **Tendang Store** adalah aplikasi football shop berbasis **Django**.  
 Aplikasi ini dibuat sebagai salah satu tugas mata kuliah **Pemrograman Berbasis Platform**.  
@@ -15,7 +15,13 @@ https://muhammad-lanang-tendangstore.pbp.cs.ui.ac.id/
 
 ---
 
-## 2️⃣ Tugas Individu 2 - Question & Answer
+## 📑 Quick Access
+- [2️⃣ Jawaban Tugas Individu 2](#2️⃣-jawaban-tugas-individu-2)
+- [3️⃣ Jawaban Tugas Individu 3](#3️⃣-jawaban-tugas-individu-3)
+
+---
+
+## 2️⃣ Jawaban Tugas Individu 2
 
 ### Question:  
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
@@ -95,7 +101,9 @@ Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebe
 ### Answer:  
 Menurut saya, asisten dosen telah melakukan kerja yang cukup baik pada tutorial 1 kemarin. **Semangat kaka2 asdosss 🙌** 
 
-## 3️⃣ Tugas Individu 3 - Question & Answer
+---
+
+## 3️⃣ Jawaban Tugas Individu 3
 
 ### Question:  
 Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
