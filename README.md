@@ -54,7 +54,7 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
 Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
 ### Answer:  
-https://drive.google.com/file/d/1jui-m9XHU4yl-0tsuzrL3wZGpw7iE7mc/view?usp=drive_link  
+<img width="873" height="717" alt="Screenshot 2025-09-09 133212" src="https://github.com/user-attachments/assets/cc8b315c-dbc8-43c5-8cf9-34bf1b38f916" />
 
 ---
 
@@ -160,3 +160,10 @@ Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
 
 ### Answer:  
 Saran saya, apabila terdapat snippet kode yang perlu diimplementasikan oleh mahasiswa, bisa dijelaskan dengan lebih detail mengenai makna dari masing-masing line, apa yang ingin dicapai dengan kode tersebut, dan bagaimana memodifikasinya. Terima kasih. Semangat kaka asdosss🤩🤩🤩
+
+### Question:
+Buatlah screenshot dari hasil akses URL pada Postman, lalu tambahkan ke dalam README.md
+<img width="1920" height="1200" alt="Screenshot (206)" src="https://github.com/user-attachments/assets/4cbd7c36-561f-4688-b646-ee4bad0cfebf" />
+<img width="1920" height="1200" alt="Screenshot (207)" src="https://github.com/user-attachments/assets/c81aa647-141d-47e5-ad08-f72600666d21" />
+<img width="1920" height="1200" alt="Screenshot (204)" src="https://github.com/user-attachments/assets/5bde9c17-8fdb-4772-9205-07041910d50f" />
+<img width="1920" height="1200" alt="Screenshot (205)" src="https://github.com/user-attachments/assets/f2150add-f9f7-4092-94f4-3f119a5f0e9a" />
