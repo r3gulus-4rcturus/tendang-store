@@ -18,6 +18,7 @@ https://muhammad-lanang-tendangstore.pbp.cs.ui.ac.id/
 ## 📑 Quick Access
 - [2️⃣ Jawaban Tugas Individu 2](#2️⃣-jawaban-tugas-individu-2)
 - [3️⃣ Jawaban Tugas Individu 3](#3️⃣-jawaban-tugas-individu-3)
+- [4️⃣ Jawaban Tugas Individu 4](#4️⃣-jawaban-tugas-individu-4)
 
 ---
 
@@ -161,9 +162,79 @@ Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
 ### Answer:  
 Saran saya, apabila terdapat snippet kode yang perlu diimplementasikan oleh mahasiswa, bisa dijelaskan dengan lebih detail mengenai makna dari masing-masing line, apa yang ingin dicapai dengan kode tersebut, dan bagaimana memodifikasinya. Terima kasih. Semangat kaka asdosss🤩🤩🤩
 
+---
+
 ### Question:
 Buatlah screenshot dari hasil akses URL pada Postman, lalu tambahkan ke dalam README.md
+
+### Answer:  
 <img width="1920" height="1200" alt="Screenshot (206)" src="https://github.com/user-attachments/assets/4cbd7c36-561f-4688-b646-ee4bad0cfebf" />
 <img width="1920" height="1200" alt="Screenshot (207)" src="https://github.com/user-attachments/assets/c81aa647-141d-47e5-ad08-f72600666d21" />
 <img width="1920" height="1200" alt="Screenshot (204)" src="https://github.com/user-attachments/assets/5bde9c17-8fdb-4772-9205-07041910d50f" />
 <img width="1920" height="1200" alt="Screenshot (205)" src="https://github.com/user-attachments/assets/f2150add-f9f7-4092-94f4-3f119a5f0e9a" />
+
+---
+
+## 4️⃣ Jawaban Tugas Individu 4
+
+# Jawaban Tugas Individu 4
+
+### Pertanyaan:
+Apa itu Django `AuthenticationForm`? Jelaskan juga kelebihan dan kekurangannya.
+
+### Jawaban:
+Django `AuthenticationForm` adalah sebuah *form* bawaan yang disediakan oleh *framework* Django untuk menangani proses autentikasi pengguna. *Form* ini secara spesifik dirancang untuk memvalidasi kredensial yang dimasukkan oleh pengguna, yaitu `username` dan `password`.
+
+* **Kelebihan:**
+    * *Form* ini secara otomatis menangani aspek keamanan penting, seperti proteksi terhadap serangan *timing attacks*.
+    * `AuthenticationForm` tidak hanya memeriksa apakah *password* benar, tetapi juga memverifikasi apakah akun pengguna yang bersangkutan berstatus aktif.
+    * Dapat dengan mudah diintegrasikan dengan sistem autentikasi Django lainnya, seperti fungsi `login()` dari modul `django.contrib.auth`.
+
+* **Kekurangan:**
+    * Secara *default*, *form* ini hanya menyediakan *field* untuk `username` dan `password`, sehingga kustomisasi lebih lanjut (misalnya, *login* menggunakan *email*) memerlukan pembuatan *form* turunan (*subclassing*).
+    * Implementasinya memerlukan penulisan logika secara manual di dalam *view* untuk memproses data dan mengautentikasi pengguna.
+
+---
+
+### Pertanyaan:
+Apa perbedaan antara autentikasi dan otorisasi? Bagaimana Django mengimplementasikan kedua konsep tersebut?
+
+### Jawaban:
+**Autentikasi** adalah proses untuk memverifikasi identitas seorang pengguna, atau dengan kata lain, menjawab pertanyaan "Siapakah Anda?". Proses ini memastikan bahwa pengguna adalah benar-benar orang yang mereka klaim. Di sisi lain, **otorisasi** adalah proses untuk menentukan hak akses atau izin yang dimiliki oleh pengguna yang telah terautentikasi. Ini menjawab pertanyaan "Apa yang boleh Anda lakukan?".
+
+Django mengimplementasikan kedua konsep ini melalui *framework* `django.contrib.auth` yang komprehensif:
+* **Implementasi Autentikasi:** Django menangani autentikasi dengan menyediakan model `User` bawaan, serta *form* siap pakai seperti `AuthenticationForm` untuk proses *login* dan `UserCreationForm` untuk registrasi. *Framework* ini juga menyediakan fungsi-fungsi *helper* seperti `login()`, `logout()`, dan `authenticate()` untuk mengelola sesi pengguna di dalam *views*.
+* **Implementasi Otorisasi:** Untuk otorisasi, Django menggunakan beberapa mekanisme. Yang paling umum adalah *decorator* `@login_required` yang berfungsi untuk membatasi akses ke sebuah *view* hanya bagi pengguna yang sudah *login*. Selain itu, Django juga memiliki sistem perizinan (*permissions*) yang lebih granular yang dapat dikaitkan dengan model `User` dan `Group` untuk mengontrol akses terhadap aksi atau data tertentu secara lebih spesifik.
+
+---
+
+### Pertanyaan:
+Apakah penggunaan *cookies* aman secara *default* dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai? Bagaimana Django menangani hal tersebut?
+
+### Jawaban:
+Penggunaan *cookies* tidak sepenuhnya aman secara *default* dan memiliki beberapa risiko potensial jika tidak dikelola dengan hati-hati. Beberapa risiko tersebut antara lain **Cross-Site Scripting (XSS)**, di mana penyerang dapat menyuntikkan skrip berbahaya untuk mencuri data *cookie*; **Cross-Site Request Forgery (CSRF)**, di mana penyerang memancing pengguna untuk melakukan tindakan yang tidak diinginkan di situs web tempat mereka terautentikasi; dan **Session Hijacking**, di mana penyerang mencuri *session ID* dari *cookie* untuk mengambil alih sesi pengguna.
+Django mengatasi risiko-risiko ini dengan beberapa fitur keamanan bawaan yang kuat:
+1.  **Proteksi CSRF:** Django menyediakan **CSRF Middleware** dan *template tag* `{% csrf_token %}` yang wajib disertakan dalam setiap *form* dengan metode `POST`. Token ini memastikan bahwa permintaan data hanya berasal dari situs Anda sendiri.
+2.  **HttpOnly Flag:** *Cookie* sesi yang dibuat oleh Django secara *default* diatur dengan *flag* `HttpOnly`. *Flag* ini mencegah *cookie* diakses melalui JavaScript di sisi klien, sehingga secara signifikan mengurangi risiko pencurian *cookie* melalui serangan XSS.
+3.  **Secure Cookies:** Django menyediakan pengaturan seperti `SESSION_COOKIE_SECURE` dan `CSRF_COOKIE_SECURE`. Jika diaktifkan, pengaturan ini memastikan bahwa *cookies* hanya akan dikirim melalui koneksi HTTPS yang terenkripsi, untuk mencegah penyadapan data (*man-in-the-middle attack*).
+
+---
+
+### Pertanyaan:
+Jelaskan bagaimana cara Anda mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
+
+### Jawaban:
+1.  **Mengimplementasikan Fungsi Registrasi, *Login*, dan *Logout***
+    Saya memulai dengan membuat tiga fungsi pada `views.py`: `register`, `login_user`, dan `logout_user`.
+    * Untuk fungsi `register`, saya memanfaatkan *form* bawaan Django, yaitu `UserCreationForm`. Ketika permintaan berjenis `POST` dan data yang dikirimkan valid, akun pengguna baru akan disimpan ke basis data menggunakan metode `form.save()`.
+    * Pada fungsi `login_user`, saya menggunakan `AuthenticationForm`. Setelah validasi berhasil, pengguna akan dialihkan ke halaman utama. Pada momen ini, saya juga mengatur *cookie* untuk `last_login` dan `username` yang akan ditampilkan.
+    * Fungsi `logout_user` bertugas untuk mengakhiri sesi pengguna, mengarahkan mereka kembali ke halaman *login*, serta menghapus *cookies* `last_login` dan `username`. Terakhir, saya menambahkan *routing* yang sesuai untuk ketiga *view* ini di `urls.py` dan membuat *template* HTML untuk halaman registrasi dan *login*.
+
+2.  **Membuat Dua Akun Pengguna dengan Masing-Masing Tiga Data Dummy**
+    Proses ini saya lakukan langsung melalui antarmuka aplikasi. Pertama, saya mendaftarkan akun pengguna pertama melalui halaman registrasi. Setelah berhasil *login* dengan akun tersebut, saya menambahkan tiga data produk menggunakan fungsionalitas tambah produk yang telah ada. Kemudian, saya keluar (*logout*), mendaftarkan akun kedua, *login*, dan mengulangi proses penambahan tiga data produk untuk pengguna kedua ini.
+
+3.  **Menghubungkan Model `Product` dengan `User`**
+    Untuk menghubungkan setiap produk dengan pemiliknya, saya memodifikasi `models.py`. Pertama, saya mengimpor model `User` dari `django.contrib.auth.models`. Selanjutnya, saya menambahkan sebuah *field* baru bernama `user` pada model `Product`. *Field* ini didefinisikan sebagai `ForeignKey` yang berelasi dengan model `User`, yang menandakan bahwa setiap entri produk terikat pada satu pengguna. Setelah model diperbarui, saya menjalankan perintah `python manage.py makemigrations` dan `python manage.py migrate` untuk menerapkan perubahan skema ini ke basis data.
+
+4.  **Menampilkan Informasi Pengguna dan Menerapkan *Cookies***
+    Untuk menampilkan informasi pengguna yang sedang *login* (seperti `username`), saya memanfaatkan objek `request` yang tersedia di dalam *view*. Informasi pengguna dapat diakses melalui `request.user`. Saya kemudian meneruskan data ini, misalnya `request.user.username`, ke *template* melalui *context*. Sementara itu, untuk `last_login`, saya mengimplementasikannya menggunakan *cookies*. Saat pengguna berhasil *login*, saya mengatur *cookie* `last_login` dengan *timestamp* saat itu. *Cookie* ini akan dihapus secara eksplisit ketika pengguna melakukan *logout* untuk memastikan data sesi tetap relevan.
