@@ -78,12 +78,32 @@ def create_product(request):
     
     context = {"form": form}
     return render(request, "create_product.html", context)
+
+@login_required(login_url='/login')
+def edit_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    form = ProductForm(request.POST or None, instance=product)
+    if form.is_valid() and request.method == 'POST':
+        form.save()
+        return redirect('main:show_main')
+
+    context = {
+        'form': form
+    }
+
+    return render(request, "edit_product.html", context)
+
+@login_required(login_url='/login')
+def delete_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    product.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
     
 def show_product_by_id(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     context = {"product": product}
     return render(request, "show_product.html", context)
-    
+
 def show_xml(request):
     product_list = Product.objects.all()
     xml_data = serializers.serialize("xml", product_list)

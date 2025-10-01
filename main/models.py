@@ -25,8 +25,7 @@ class Product(models.Model):
     is_featured = models.BooleanField(default=False)
     
     stock = models.PositiveIntegerField(default=0)
-    brand = models.CharField()
-    
+    brand = models.CharField(max_length=30)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     
