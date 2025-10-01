@@ -238,3 +238,56 @@ Jelaskan bagaimana cara Anda mengimplementasikan *checklist* di atas secara *ste
 
 4.  **Menampilkan Informasi Pengguna dan Menerapkan *Cookies***
     Untuk menampilkan informasi pengguna yang sedang *login* (seperti `username`), saya memanfaatkan objek `request` yang tersedia di dalam *view*. Informasi pengguna dapat diakses melalui `request.user`. Saya kemudian meneruskan data ini, misalnya `request.user.username`, ke *template* melalui *context*. Sementara itu, untuk `last_login`, saya mengimplementasikannya menggunakan *cookies*. Saat pengguna berhasil *login*, saya mengatur *cookie* `last_login` dengan *timestamp* saat itu. *Cookie* ini akan dihapus secara eksplisit ketika pengguna melakukan *logout* untuk memastikan data sesi tetap relevan.
+
+---
+
+# 5️⃣ Jawaban Tugas Individu 5
+
+### Pertanyaan:
+Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+
+### Jawaban:
+Urutan CSS Selector untuk suatu elemen HTML dimulai dari deklarasi `!important`, kemudian inline style, selector ID, selector class/atribut/pseudo-class, dan terakhir selector elemen. Jika berada di tingkat prioritas yang sama, deklarasi yang ditulis paling akhir akan digunakan.
+
+---
+
+### Pertanyaan:
+Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design, serta jelaskan mengapa!
+
+### Jawaban:
+Responsive design penting karena aplikasi harus dapat digunakan di berbagai macam perangkat dengan ukuran layar berbeda. Website sosial media atau e-commerce yang sudah besar biasanya pasti responsif sehingga nyaman diakses di mobile maupun desktop. Di lain sisi, website-website lawas atau sistem internal perusahaan belum responsif, sehingga tampilan tidak optimal di perangkat kecil. Hal ini karena beberapa sistem internal perusahaan memang dibuat untuk di akses dalam perangkat PC saja.
+
+---
+
+### Pertanyaan:
+Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+
+### Jawaban:
+Margin adalah space di luar elemen yang menjadi pemisah dengan elemen lain, border adalah garis pembatas elemen, sedangkan padding adalah ruang antara konten dengan batas dalam elemen. Cara mengimplementasikannya adalah menggunakan properti CSS `margin`, `border`, dan `padding`.
+
+---
+
+### Pertanyaan:
+Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+
+### Jawaban:
+Flexbox digunakan untuk mengatur layout dengan fleksibel (biasanya satu dimensi, berupa baris saja atau kolom saja). Flexbox cocok untuk komponen linear. Grid digunakan untuk layout dua dimensi dengan baris dan kolom, cocok untuk desain halaman yang lebih kompleks. Kedua layout ini berguna untuk mempermudah penyusunan tampilan yang responsif.
+
+---
+
+### Pertanyaan:
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+### Jawaban: 
+1. **Implementasikan fungsi untuk menghapus dan mengedit product** 
+Pada tahap implementasi, saya mulai dengan menambahkan dua fungsi baru di dalam `views.py`, yaitu `delete_product` dan `edit_product`. Fungsi `delete_product` bertugas mencari produk berdasarkan `id` lalu menghapusnya dari database, sedangkan fungsi `edit_product` menampilkan form edit yang sudah otomatis terisi data produk lama sehingga pengguna bisa langsung melakukan perubahan. Untuk mendukung hal ini, saya juga membuat template HTML khusus untuk form edit, serta menambahkan konfigurasi routing di `urls.py`.
+
+2. **Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:**
+**a. Kustomisasi halaman daftar product menjadi lebih menarik dan responsive. Kemudian, perhatikan kondisi berikut: (1) Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar. (2) Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!).** 
+Saya melakukan kustomisasi tampilan pada halaman daftar produk agar lebih menarik dan responsif. Jika aplikasi belum memiliki produk sama sekali, halaman main akan menampilkan gambar emoji sedih :( disertai pesan untuk menambahkan produk baru. Tetapi jika produk sudah ada, halaman main akan menampilkan detail produk dalam bentuk card. Masing-masing card berisi informasi produk seperti gambar, nama, harga, dan penjual. Desain card ini saya buat berbeda dari contoh tutorial, dengan properti yang berbeda, warna dan juga button yang berbeda, dan juga peletakan kategori yang berbeda.
+
+4. **Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!** 
+Saya membuat Tombol edit dengan menggunakan tag anchor, dimana apabila elemen tersebut diklik saya mengarahkan pengguna ke `edit_product`, sementara tombol hapus memanggil fungsi `delete_product`. 
+
+5. **Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.**
+Saya membuat navbar responsif dimana pada tampilan desktop, navbar menampilkan menu di bagian atas halaman, sementara pada tampilan mobile, menu berganti menjadi ikon hamburger yang jika diklik akan menampilkan menu-menu tersebut. Menu ini berisi Home dan juga Sell a Product.
