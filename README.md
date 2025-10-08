@@ -292,7 +292,7 @@ Saya membuat Tombol edit dengan menggunakan tag anchor, dimana apabila elemen te
 5. **Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.**
 Saya membuat navbar responsif dimana pada tampilan desktop, navbar menampilkan menu di bagian atas halaman, sementara pada tampilan mobile, menu berganti menjadi ikon hamburger yang jika diklik akan menampilkan menu-menu tersebut. Menu ini berisi Home dan juga Sell a Product.
 
-## 5️⃣ Jawaban Tugas Individu 5
+## 6️⃣ Jawaban Tugas Individu 6
 
 ### Question:
 Apa perbedaan antara *synchronous request* dan *asynchronous request*?
@@ -321,6 +321,7 @@ Bagaimana cara memastikan keamanan saat menggunakan AJAX untuk fitur *Login* dan
 
 ### Answer:
 Untuk keamanan, kita tetap harus menyertakan **CSRF token** dalam setiap *request–response* AJAX. Caranya, token ini bisa diambil dari **cookie browser aktif**, lalu disertakan di dalam *header request* saat mengirim data ke *view* di `views.py`. Dengan begitu, Django tetap bisa melakukan verifikasi bahwa *request* tersebut berasal dari sumber yang benar.
+
 ---
 
 ### Question:
