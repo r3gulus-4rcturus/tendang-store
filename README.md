@@ -19,6 +19,8 @@ https://muhammad-lanang-tendangstore.pbp.cs.ui.ac.id/
 - [2️⃣ Jawaban Tugas Individu 2](#2️⃣-jawaban-tugas-individu-2)
 - [3️⃣ Jawaban Tugas Individu 3](#3️⃣-jawaban-tugas-individu-3)
 - [4️⃣ Jawaban Tugas Individu 4](#4️⃣-jawaban-tugas-individu-4)
+- [5️⃣ Jawaban Tugas Individu 5](#5️⃣-jawaban-tugas-individu-5)
+- [6️⃣ Jawaban Tugas Individu 6](#6️⃣-jawaban-tugas-individu-6)
 
 ---
 
@@ -177,12 +179,10 @@ Buatlah screenshot dari hasil akses URL pada Postman, lalu tambahkan ke dalam RE
 
 ## 4️⃣ Jawaban Tugas Individu 4
 
-# Jawaban Tugas Individu 4
-
-### Pertanyaan:
+### Question:
 Apa itu Django `AuthenticationForm`? Jelaskan juga kelebihan dan kekurangannya.
 
-### Jawaban:
+### Answer:  
 Django `AuthenticationForm` adalah sebuah *form* bawaan yang disediakan oleh *framework* Django untuk menangani proses autentikasi pengguna. *Form* ini secara spesifik dirancang untuk memvalidasi kredensial yang dimasukkan oleh pengguna, yaitu `username` dan `password`.
 
 * **Kelebihan:**
@@ -196,10 +196,10 @@ Django `AuthenticationForm` adalah sebuah *form* bawaan yang disediakan oleh *fr
 
 ---
 
-### Pertanyaan:
+### Question:
 Apa perbedaan antara autentikasi dan otorisasi? Bagaimana Django mengimplementasikan kedua konsep tersebut?
 
-### Jawaban:
+### Answer:  
 **Autentikasi** adalah proses untuk memverifikasi identitas seorang pengguna, atau dengan kata lain, menjawab pertanyaan "Siapakah Anda?". Proses ini memastikan bahwa pengguna adalah benar-benar orang yang mereka klaim. Di sisi lain, **otorisasi** adalah proses untuk menentukan hak akses atau izin yang dimiliki oleh pengguna yang telah terautentikasi. Ini menjawab pertanyaan "Apa yang boleh Anda lakukan?".
 
 Django mengimplementasikan kedua konsep ini melalui *framework* `django.contrib.auth` yang komprehensif:
@@ -208,10 +208,10 @@ Django mengimplementasikan kedua konsep ini melalui *framework* `django.contrib.
 
 ---
 
-### Pertanyaan:
+### Question:
 Apakah penggunaan *cookies* aman secara *default* dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai? Bagaimana Django menangani hal tersebut?
 
-### Jawaban:
+### Answer:  
 Penggunaan *cookies* tidak sepenuhnya aman secara *default* dan memiliki beberapa risiko potensial jika tidak dikelola dengan hati-hati. Beberapa risiko tersebut antara lain **Cross-Site Scripting (XSS)**, di mana penyerang dapat menyuntikkan skrip berbahaya untuk mencuri data *cookie*; **Cross-Site Request Forgery (CSRF)**, di mana penyerang memancing pengguna untuk melakukan tindakan yang tidak diinginkan di situs web tempat mereka terautentikasi; dan **Session Hijacking**, di mana penyerang mencuri *session ID* dari *cookie* untuk mengambil alih sesi pengguna.
 Django mengatasi risiko-risiko ini dengan beberapa fitur keamanan bawaan yang kuat:
 1.  **Proteksi CSRF:** Django menyediakan **CSRF Middleware** dan *template tag* `{% csrf_token %}` yang wajib disertakan dalam setiap *form* dengan metode `POST`. Token ini memastikan bahwa permintaan data hanya berasal dari situs Anda sendiri.
@@ -220,10 +220,10 @@ Django mengatasi risiko-risiko ini dengan beberapa fitur keamanan bawaan yang ku
 
 ---
 
-### Pertanyaan:
+### Question:
 Jelaskan bagaimana cara Anda mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial).
 
-### Jawaban:
+### Answer:  
 1.  **Mengimplementasikan Fungsi Registrasi, *Login*, dan *Logout***
     Saya memulai dengan membuat tiga fungsi pada `views.py`: `register`, `login_user`, dan `logout_user`.
     * Untuk fungsi `register`, saya memanfaatkan *form* bawaan Django, yaitu `UserCreationForm`. Ketika permintaan berjenis `POST` dan data yang dikirimkan valid, akun pengguna baru akan disimpan ke basis data menggunakan metode `form.save()`.
@@ -241,44 +241,44 @@ Jelaskan bagaimana cara Anda mengimplementasikan *checklist* di atas secara *ste
 
 ---
 
-# 5️⃣ Jawaban Tugas Individu 5
+## 5️⃣ Jawaban Tugas Individu 5
 
-### Pertanyaan:
+### Question:
 Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
 
-### Jawaban:
+### Answer:  
 Urutan CSS Selector untuk suatu elemen HTML dimulai dari deklarasi `!important`, kemudian inline style, selector ID, selector class/atribut/pseudo-class, dan terakhir selector elemen. Jika berada di tingkat prioritas yang sama, deklarasi yang ditulis paling akhir akan digunakan.
 
 ---
 
-### Pertanyaan:
+### Question:
 Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design, serta jelaskan mengapa!
 
-### Jawaban:
+### Answer:  
 Responsive design penting karena aplikasi harus dapat digunakan di berbagai macam perangkat dengan ukuran layar berbeda. Website sosial media atau e-commerce yang sudah besar biasanya pasti responsif sehingga nyaman diakses di mobile maupun desktop. Di lain sisi, website-website lawas atau sistem internal perusahaan belum responsif, sehingga tampilan tidak optimal di perangkat kecil. Hal ini karena beberapa sistem internal perusahaan memang dibuat untuk di akses dalam perangkat PC saja.
 
 ---
 
-### Pertanyaan:
+### Question:
 Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
 
-### Jawaban:
+### Answer:  
 Margin adalah space di luar elemen yang menjadi pemisah dengan elemen lain, border adalah garis pembatas elemen, sedangkan padding adalah ruang antara konten dengan batas dalam elemen. Cara mengimplementasikannya adalah menggunakan properti CSS `margin`, `border`, dan `padding`.
 
 ---
 
-### Pertanyaan:
+### Question:
 Jelaskan konsep flex box dan grid layout beserta kegunaannya!
 
-### Jawaban:
+### Answer:  
 Flexbox digunakan untuk mengatur layout dengan fleksibel (biasanya satu dimensi, berupa baris saja atau kolom saja). Flexbox cocok untuk komponen linear. Grid digunakan untuk layout dua dimensi dengan baris dan kolom, cocok untuk desain halaman yang lebih kompleks. Kedua layout ini berguna untuk mempermudah penyusunan tampilan yang responsif.
 
 ---
 
-### Pertanyaan:
+### Question:
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 
-### Jawaban: 
+### Answer:  
 1. **Implementasikan fungsi untuk menghapus dan mengedit product** 
 Pada tahap implementasi, saya mulai dengan menambahkan dua fungsi baru di dalam `views.py`, yaitu `delete_product` dan `edit_product`. Fungsi `delete_product` bertugas mencari produk berdasarkan `id` lalu menghapusnya dari database, sedangkan fungsi `edit_product` menampilkan form edit yang sudah otomatis terisi data produk lama sehingga pengguna bisa langsung melakukan perubahan. Untuk mendukung hal ini, saya juga membuat template HTML khusus untuk form edit, serta menambahkan konfigurasi routing di `urls.py`.
 
@@ -291,3 +291,42 @@ Saya membuat Tombol edit dengan menggunakan tag anchor, dimana apabila elemen te
 
 5. **Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.**
 Saya membuat navbar responsif dimana pada tampilan desktop, navbar menampilkan menu di bagian atas halaman, sementara pada tampilan mobile, menu berganti menjadi ikon hamburger yang jika diklik akan menampilkan menu-menu tersebut. Menu ini berisi Home dan juga Sell a Product.
+
+## 5️⃣ Jawaban Tugas Individu 5
+
+### Question:
+Apa perbedaan antara *synchronous request* dan *asynchronous request*?
+
+### Answer:
+**Synchronous request** adalah jenis request ke server yang dijalankan **secara berurutan**, dalam artian kode berikutnya baru dieksekusi **setelah** request selesai diproses. Sementara itu, **asynchronous request** memungkinkan sebuah request dijalankan **tanpa menghentikan eksekusi kode di bawahnya**. Dengan kata lain, kode lain bisa tetap berjalan *tanpa harus menunggu* proses request selesai.
+
+---
+
+### Question:
+Bagaimana AJAX bekerja di Django (alur *request–response*)?
+
+### Answer:
+AJAX bekerja dengan cara **mendengarkan/ (*listen*) sebuah event** — misalnya klik tombol atau submit form. Ketika event tersebut ter-*trigger*, AJAX akan melakukan **asynchronous request** menggunakan fungsi `fetch()` ke suatu *endpoint* API (biasanya CRUD). Setelah server mengirimkan **response**, hasilnya langsung ditampilkan di halaman dengan cara **memanipulasi elemen DOM**. Manipulasi basanya dilakukan dengan  mengganti teks, menambahkan elemen, atau memperbarui data yang sudah ada, tanpa harus melakukan *refresh* halaman.
+
+### Question:
+Apa keuntungan menggunakan AJAX dibandingkan *render* biasa di Django?
+
+### Answer:
+Keuntungan utama penggunaan AJAX adalah **interaktif dan cepat**. Dengan AJAX, kita bisa memperbarui bagian tertentu dari halaman **tanpa harus me-*refresh* browser**. Hal ini membuat pengalaman pengguna terasa lebih *smooth* dan interaktif.
+
+---
+
+### Question:
+Bagaimana cara memastikan keamanan saat menggunakan AJAX untuk fitur *Login* dan *Register* di Django?
+
+### Answer:
+Untuk keamanan, kita tetap harus menyertakan **CSRF token** dalam setiap *request–response* AJAX. Caranya, token ini bisa diambil dari **cookie browser aktif**, lalu disertakan di dalam *header request* saat mengirim data ke *view* di `views.py`. Dengan begitu, Django tetap bisa melakukan verifikasi bahwa *request* tersebut berasal dari sumber yang benar.
+---
+
+### Question:
+Bagaimana AJAX mempengaruhi pengalaman pengguna (User Experience) pada website?
+
+### Answer: 
+Dengan adanya AJAX, website terasa lebih interaktif dan cepat. Pengguna tidak perlu menunggu halaman di-refresh setiap kali ada perubahan data, karena bagian tertentu bisa langsung di-update. Hasilnya, pengalaman pengguna menjadi lebih dinamis, ringan, dan menyenangkan.
+
+---
