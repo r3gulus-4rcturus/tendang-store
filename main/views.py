@@ -49,7 +49,6 @@ def logout_user(request):
     response.delete_cookie('username')
     return response
 
-@csrf_exempt
 def register_ajax(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -62,7 +61,6 @@ def register_ajax(request):
     return JsonResponse({"success": False, "message": "Invalid request method."}, status=400)
 
 
-@csrf_exempt
 def login_ajax(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
