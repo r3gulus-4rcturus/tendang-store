@@ -13,7 +13,9 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-
+import json
+import requests
+    
 def register(request):
     form = UserCreationForm()
     
@@ -266,3 +268,57 @@ def show_xml_by_id(request, product_id):
 #         return HttpResponse(json_data, content_type="application/json")
 #     except Product.DoesNotExist:
 #         return HttpResponse(status=404)
+
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)     
+        name = strip_tags(data.get("name"))
+        price = data.get("price")
+        description = strip_tags(data.get("description"))
+        thumbnail = data.get("thumbnail")
+        category = data.get("category")
+        is_featured = data.get("is_featured") == 'on'
+        stock = data.get("stock")
+        brand = data.get("brand")
+        user = request.user
+               
+        newProduct = Product(
+            name = name,
+            price = price,
+            description = description,
+            thumbnail = thumbnail,
+            category = category,
+            is_featured = is_featured,
+            stock = stock,
+            brand = brand,
+            user = user,
+        )
+        
+        newProduct.save()
+                    
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+    
+    
+
+def proxy_image(request):
+    image_url = request.GET.get('url')
+    if not image_url:
+        return HttpResponse('No URL provided', status=400)
+    
+    try:
+        # Fetch image from external source
+        response = requests.get(image_url, timeout=10)
+        response.raise_for_status()
+        
+        # Return the image with proper content type
+        return HttpResponse(
+            response.content,
+            content_type=response.headers.get('Content-Type', 'image/jpeg')
+        )
+    except requests.RequestException as e:
+        return HttpResponse(f'Error fetching image: {str(e)}', status=500)
+    
