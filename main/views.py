@@ -287,7 +287,7 @@ def create_product_flutter(request):
         is_featured = data.get("is_featured") == 'on'
         stock = data.get("stock")
         brand = data.get("brand")
-        user = request.user | None
+        user = request.user
                
         newProduct = Product(
             name = name,
