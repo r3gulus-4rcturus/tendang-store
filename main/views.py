@@ -164,6 +164,11 @@ def show_xml(request):
 
 def show_json(request):
     product_list = Product.objects.all()
+    
+    filter_type = request.GET.get("filter", "all")  # default 'all'
+    if (filter_type != "all"):
+        product_list = Product.objects.filter(user=request.user)
+        
     json_data = [
         {
             'id': product.id,
@@ -282,7 +287,7 @@ def create_product_flutter(request):
         is_featured = data.get("is_featured") == 'on'
         stock = data.get("stock")
         brand = data.get("brand")
-        user = request.user
+        user = request.user | None
                
         newProduct = Product(
             name = name,
